@@ -21,6 +21,14 @@ $(function(){
         }
     });
 
+    jQuery(window).scroll(function () {
+        if (jQuery(window).scrollTop() > 500) {
+            jQuery("#scroll-top").addClass("is-visible");
+        } else {
+            jQuery("#scroll-top").removeClass("is-visible");
+        }
+    });
+
     $('#nav').onePageNav({
         filter: ':not(.external)',
         scrollSpeed: 950,

@@ -430,6 +430,37 @@ width: 11px;
   border: 0;
 }
 
+#scroll-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  text-align: center;
+  border-radius: 8px;
+  background-color: rgba(0, 199, 252, 0.9);
+  color: #fff;
+  font-size: 24px;
+  box-shadow: 0 10px 20px rgba(0, 199, 252, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 50;
+}
+
+#scroll-top:hover {
+  background-color: #00a8d6;
+  color: #fff;
+}
+
+#scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
 
 /*============================================================
     Services
