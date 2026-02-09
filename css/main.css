@@ -325,6 +325,14 @@ width: 11px;
   text-shadow:none;
 }
 
+#home-carousel .carousel-inner {
+  cursor: grab;
+}
+
+#home-carousel .carousel-inner:active {
+  cursor: grabbing;
+}
+
 #nav-arrows > a {
   border: 1px solid #fff;
   color: #fff;

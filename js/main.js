@@ -35,6 +35,74 @@ $(function(){
         $('#home-carousel .carousel-inner .item, #home-carousel .video-container').css('height',slideHeight);
     });
 
+    var touchStartX = null;
+    var touchStartY = null;
+    var swipeThreshold = 40;
+    var isMouseDown = false;
+
+    $('#home-carousel').on('touchstart', function (event) {
+        var touch = event.originalEvent.touches[0];
+        touchStartX = touch.clientX;
+        touchStartY = touch.clientY;
+    });
+
+    $('#home-carousel').on('touchend', function (event) {
+        if (touchStartX === null || touchStartY === null) {
+            return;
+        }
+
+        var touch = event.originalEvent.changedTouches[0];
+        var deltaX = touch.clientX - touchStartX;
+        var deltaY = touch.clientY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX > 0) {
+                $(this).carousel('prev');
+            } else {
+                $(this).carousel('next');
+            }
+        }
+
+        touchStartX = null;
+        touchStartY = null;
+    });
+
+    $('#home-carousel').on('mousedown', function (event) {
+        if (event.which !== 1) {
+            return;
+        }
+        isMouseDown = true;
+        touchStartX = event.clientX;
+        touchStartY = event.clientY;
+    });
+
+    $(document).on('mouseup', function (event) {
+        if (!isMouseDown || touchStartX === null || touchStartY === null) {
+            return;
+        }
+
+        var deltaX = event.clientX - touchStartX;
+        var deltaY = event.clientY - touchStartY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+            if (deltaX > 0) {
+                $('#home-carousel').carousel('prev');
+            } else {
+                $('#home-carousel').carousel('next');
+            }
+        }
+
+        isMouseDown = false;
+        touchStartX = null;
+        touchStartY = null;
+    });
+
+    $('#home-carousel').on('mouseleave', function () {
+        isMouseDown = false;
+        touchStartX = null;
+        touchStartY = null;
+    });
+
     // portfolio filtering
 
     $("#projects").mixItUp();
