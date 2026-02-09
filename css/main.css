@@ -367,6 +367,64 @@ width: 11px;
     color: #fff;
 }
 
+.hero-cta {
+  position: absolute;
+  left: 50%;
+  bottom: 90px;
+  transform: translateX(-50%);
+  z-index: 25;
+}
+
+.hero-cta-button {
+  display: inline-block;
+  padding: 2px;
+  border-radius: 12px;
+  background: #00c7fc;
+  box-shadow: 0 12px 25px rgba(0, 199, 252, 0.35);
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-cta-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 35px rgba(0, 199, 252, 0.5);
+}
+
+.hero-cta-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.hero-cta-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background-color: rgba(15, 116, 143, 0.9);
+}
+
+.hero-cta-text {
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta-icon {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta-button:hover .hero-cta-text,
+.hero-cta-button:hover .hero-cta-icon {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
 .carousel-indicators .active {
   background-color: #00c7fc;
   border: 0;

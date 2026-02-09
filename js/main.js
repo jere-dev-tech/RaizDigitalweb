@@ -27,6 +27,21 @@ $(function(){
         scrollThreshold: 1
     });
 
+    $('a[href^="#"]').on('click', function (event) {
+        var targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') {
+            return;
+        }
+
+        var $target = $(targetId);
+        if ($target.length) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: $target.offset().top
+            }, 700);
+        }
+    });
+
     // Slider Height
     var slideHeight = $(window).height();
     $('#home-carousel .carousel-inner .item, #home-carousel .video-container').css('height',slideHeight);
