@@ -80,18 +80,17 @@ $(function(){
         singleItem:true
     });
 
+    if (typeof WOW === "function") {
+        new WOW({
+            animateClass: 'animated',
+            offset: 100,
+            mobile: true
+        }).init();
+    } else {
+        $(".wow").addClass("animated");
+    }
+
 });
-
-/* ========================================================================= */
-/*  On scroll fade/bounce fffect
-/* ========================================================================= */
-
-    wow = new WOW({
-        animateClass: 'animated',
-        offset: 100,
-        mobile: false
-    });
-    wow.init();
 
 /* ---------------------------------------------------------------------- */
 /*      Progress Bars
